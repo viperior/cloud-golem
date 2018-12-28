@@ -24,7 +24,7 @@ if i.exists?
   when 80  # stopped
     puts "#{cloud_golem_ec2_instance_id} is already stopped"
   else
-    puts "Stopping instance with ID #{cloud_golem_ec2_instance_id}"
+    puts "Stopping instance with ID #{cloud_golem_ec2_instance_id}. Current state code: #{i.state.code}"
     i.stop
     puts "Instance stopping..."
   end
@@ -52,7 +52,7 @@ if i.exists?
   when 80  # stopped
     puts "#{cloud_golem_ec2_instance_id} has successfully been stopped."
   else
-    puts "There was a problem stopping instance ID #{cloud_golem_ec2_instance_id}..."
+    puts "There was an unknown problem (state code: #{i.state.code}) stopping instance ID #{cloud_golem_ec2_instance_id}..."
   end
 end
 
